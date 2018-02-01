@@ -1,0 +1,53 @@
+<!--引入模板文件,可以用相对路径/绝对路径  -->
+<import src="post-item/post-item-template.wxml"/>
+<view>
+	<!-- 在这里设定高宽 -->
+  <!-- false如果不加{{}}那么 , 小程序认为他是字符串 , 字符串 = true , false 都要增加 {{}  -->
+  <swiper catchtap='onSwiperTap' vertical='{{false}}' indicator-dots="true" autoplay='true' interval='2000'>
+    <swiper-item>
+    	<!-- 控制图片大小 -->
+      <image src='/images/wx.png' data-postId="3"></image>
+    </swiper-item>
+    <swiper-item>
+    	<image src='/images/vr.png' data-postId="4"></image>
+    </swiper-item>
+    <swiper-item>
+		  <image src='/images/iqiyi.png' data-postId="5"></image>
+    </swiper-item>
+  </swiper>
+
+<block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="index">
+  <!-- 这段代码已经被模板文件所替代 -->
+  <!-- <view class='post-container'>
+    <view class='post-author-date'>
+      <image class='post-author' src='{{item.avatar}}'></image>
+      <text class='post-date'>{{item.date}}{{'--'+index}}</text>
+    </view>
+    <text class='post-title'>{{item.title}}</text>
+    <!-- 嵌套用.访问  -->
+    <!--<image class='post-image' src='{{item.headImgSrc}}'></image>
+    <text class='post-content'>{{item.content}}</text>
+    <view class='post-like'>
+      <image class='post-like-image' src='{{item.collect_num}}'></image>
+      <text class='post-like-font'>92</text>
+      <image class='post-like-image' src='{{item.view_num}}'></image>
+      <text class='post-like-font'>65</text>
+    </view>
+  </view> -->
+
+  <!-- 模板文件 -->
+  						<!-- wx:for-item="item" 传递给模板 -->             
+  <!-- <template is="post-item" data="{{item}}" /> -->
+  
+  <!--...item 意思是 es6的扩展运算符 , 把json平铺展开  -->
+  <!--模板文件 , 想要加绑定时间 不能直接在 template 里面加 , 
+      在DOM树上 , 是没有template , 所以在外面包裹一层标签才行
+    -->
+                          <!-- 绑定一个数据在标签里面  -->
+  <view catchtap='onPostTap' data-postId="{{item.postId}}">
+    <template is="post-item" data="{{...item}}" />          
+  </view>
+              
+</block>
+
+</view>

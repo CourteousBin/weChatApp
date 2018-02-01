@@ -1,0 +1,8 @@
+<view class='container'>
+  <image class='user-avatar' src='{{user_logo}}'></image>
+  <text class='user-name'>Hello,{{user_name}}</text>
+  <!-- bind 与 catch 区别 ; bind 会冒泡到上级 , catch 不会  -->
+  <view class='moto-container' bindtap='onTap'>
+    <text class='moto'>开启小程序之旅</text>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!-- 如果在post.wxml页面没有使用扩展运算符 ...itme 那么
+    {{item.avatar}}必须要写item前缀
+    如果用了 ...item 那么 , 直接写属性名就行了
+     -->
+<template name="post-item">
+  <view class='post-container'>
+    <view class='post-author-date'>
+      <image class='post-author' src='{{avatar}}'></image>
+      <text class='post-date'>{{date}}{{'--'+index}}</text>
+    </view>
+    <text class='post-title'>{{title}}</text>
+    <!-- 嵌套用.访问  -->
+    <image class='post-image' src='{{headImgSrc}}'></image>
+    <text class='post-content'>{{content}}</text>
+    <view class='post-like'>
+      <image class='post-like-image' src='{{collect_num}}'></image>
+      <text class='post-like-font'>92</text>
+      <image class='post-like-image' src='{{view_num}}'></image>
+      <text class='post-like-font'>65</text>
+    </view>
+  </view> 
+</template>

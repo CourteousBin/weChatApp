@@ -1,0 +1,13 @@
+/* pages/movie-grid/movie-grid.wxss */
+@import "../movie/movie.wxss";
+
+.single-view-container {
+  float: left;
+  margin-bottom: 40rpx;
+
+}
+.grid-container {
+  /*下拉刷新要设置高度  */
+  height: 1300rpx;
+  margin: 40rpx 0 40rpx 6rpx;
+}
